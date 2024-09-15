@@ -1,0 +1,31 @@
+.navBar{
+    background-color:var(--theme);
+    padding: 1rem 1.5rem;
+    color:white;
+    position: sticky;
+    top:0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+.logo{
+    margin: 0;
+    color:var(--white) ;
+    font-weight:500;
+    font-size:1.2rem;
+}
+.link{
+    opacity: 0.8;
+    cursor: pointer;
+}
+.link:hover{
+opacity: 1;
+transition: all 0.3s;
+}
+.img-logout{
+    display: flex;
+    align-items: center;
+    gap:0.5rem;
+}

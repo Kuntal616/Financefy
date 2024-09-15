@@ -1,0 +1,67 @@
+.input-flex {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+    box-shadow: 0px 0px 30px 8px rgba(227, 227, 227, 0.75);
+    border-radius: 0.5rem;
+    padding: 0rem 0.5rem;
+  }
+  .input-flex input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 0;
+  }
+  .input-flex input:focus {
+    outline: none;
+  }
+
+  .select-input {
+  width: 30%;
+  margin-right: 10;
+  display: flex;
+  align-items: center;
+  box-shadow: 0px 0px 30px 8px rgba(227, 227, 227, 0.75);
+  border-radius: 0.5rem !important;
+  padding: 0.2rem 0.5rem;
+}
+
+/* .select-input-2 > div {
+  border-width: 0px !important;
+  border-bottom-width: 1px !important;
+  border-radius: 0 !important;
+  border-color: #000 !important;
+} */
+
+.select-input > div {
+  border: 0px solid #fff !important;
+}
+  /*custom color for radio btn of ant design*/
+.ant-radio-button-checked,
+.ant-radio-button-inner,
+.ant-radio-button-inner,
+.ant-radio-button-wrapper-checked,
+.ant-radio-button-input:focus,
+.ant-radio-button-inner {
+  border-color: var(--theme) !important;
+  color: var(--theme) !important;
+}
+
+.ant-radio:hover,
+.ant-radio-button-wrapper:hover {
+  color: var(--theme);
+}
+@media screen and (max-width:800px) {
+.input-radio{
+font-size:0.6rem;
+}  
+.heading-Trans{
+  font-size: 0.9rem;
+}
+}
+@media screen and (max-width:600px) {
+  .input-radio{
+  display: none;
+    }
+}
