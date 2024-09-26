@@ -162,7 +162,7 @@ function TransactionTable({transactions,fetchTransaction,addTransaction}) {
             >
               Export to CSV
             </button>
-            <label for="file-csv" className="btn btn-blue">
+            <label htmlFor="file-csv" className="btn btn-blue">
               Import from CSV
             </label>
             <input
