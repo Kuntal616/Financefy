@@ -1,9 +1,9 @@
 import { Card, Row } from "antd";
 import Button from "../Button/Button";
 import "./style.css";
-function Cards({ currentBalance,income,expenses,showExpenseModal,showIncomeModal }) {
+function Cards({ currentBalance,income,expenses,showExpenseModal,showIncomeModal,reset }) {
 
-  const reset = () => {};
+ 
 
  
 

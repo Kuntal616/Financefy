@@ -195,11 +195,28 @@ export default function Dashboard() {
       angleField: "value",
       colorField: "category",
     };
-   
+    
+    function reset() {
+      // Reset transactions to an empty array
+      setTransactions([]);
+      
+      // Reset income, expenses, and current balance to zero
+      setIncome(0);
+      setExpenses(0);
+      setCurrentBalance(0);
+      
+      // Optionally, you can also clear any other related states if necessary
+      // For example, if you want to reset the modal visibility
+      setIsExpenseModalVisible(false);
+      setIsIncomeModalVisible(false);
+      
+      // Optionally, you can also show a toast notification
+      toast.info("All data has been reset.");
+    }
   return (
     <>
       <Header />
-      <Cards currentBalance={currentBalance} income={income} expenses={expenses} showExpenseModal={showExpenseModal}   showIncomeModal={showIncomeModal} />
+      <Cards currentBalance={currentBalance} income={income} expenses={expenses} showExpenseModal={showExpenseModal}   showIncomeModal={showIncomeModal} reset={reset} />
       {transactions.length === 0 ? (
             <NoTransactions />
           ) : (
