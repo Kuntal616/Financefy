@@ -173,24 +173,38 @@ export default function Dashboard() {
 
   async function reset() {
     setLoading(true);
+    console.log("Reset function called");
 
-    if (user) {
-      try {
+    if (!user) {
+        console.error("User not authenticated");
+        toast.error("User is not authenticated.");
+        setLoading(false);
+        return;
+    }
+
+    console.log("User is authenticated:", user.uid);
+
+    try {
         // Fetch all transactions for the user
         const q = query(collection(db, `users/${user.uid}/transactions`));
         const querySnapshot = await getDocs(q);
 
+        console.log("Documents found:", querySnapshot.docs.length);
+
         // Check if there are any transactions to delete
         if (!querySnapshot.empty) {
-          const batch = writeBatch(db);  // Use writeBatch to create a batch
+            const batch = writeBatch(db);
 
-          // Iterate over each document and add a delete operation to the batch
-          querySnapshot.forEach((doc) => {
-            batch.delete(doc.ref);
-          });
+            querySnapshot.forEach((doc) => {
+                console.log("Deleting document:", doc.id);
+                batch.delete(doc.ref);
+            });
 
-          // Commit the batch operation
-          await batch.commit();
+            // Commit the batch operation
+            await batch.commit();
+            console.log("Batch commit successful");
+        } else {
+            console.log("No transactions found to delete.");
         }
 
         // Reset the state after successful deletion
@@ -205,14 +219,14 @@ export default function Dashboard() {
         fetchTransaction();
 
         toast.info("All data has been reset.");
-      } catch (error) {
+    } catch (error) {
         console.error("Error resetting transaction database: ", error);
         toast.error("Failed to reset transaction database.");
-      }
     }
 
     setLoading(false);
-  }
+}
+
 
   return (
     <>
